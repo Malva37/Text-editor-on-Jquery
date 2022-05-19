@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header{
+    background-color: grey;
+}
+.buttonsPanel1{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1%;
+    max-width: 60%;
+    margin: 0 auto;
+
+}
+.buttonsPanel2{
+    display: none;
+}
+.btn-group, .btn button{
+    display: flex;
+    border-radius: 5px;
+    margin: 0 1%;
+}
+.btn-group button, .btn button {
+    background-color: gainsboro;
+    color: black; 
+    padding: 1%; 
+    cursor: pointer; 
+    border: none;
+    width: 35px;
+    height: 35px;
+    align-items: center; 
+
+  }
+i{
+    margin: 0 auto;
+}
+  .btn-group button:last-child{
+      border-radius: 0 5px 5px 0;
+  }
+  .btn-group button:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+
+  .btn-group button:hover {
+    animation-duration: 4s;
+    transform: scale(1.05);
+  }
