@@ -1,65 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <div class="buttonsPanel1">
-            <div class="btn">
-                <button class=""><i class="fas fa-code"></i></button>
-              </div>
-              <div class="btn-group">
-                <button class="bold"><i class="fa-solid fa-bold"></i></button>
-                <button class="italic"><i class="fa-solid fa-italic"></i></button>
-                <button class="underline"><i class="fa-solid fa-underline"></i></button>
-                <button class="strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
-              </div>
-              <div class="btn-group">
-                <button class="alignLeft"><i class="fa-solid fa-align-left"></i></button>
-                <button class="alignCenter"><i class="fa-solid fa-align-center"></i></button>
-                <button class="alignRight"><i class="fa-solid fa-align-right"></i></button>
-              </div>
-              <div class="btn-group">
+  <header>
+    <div class="buttonsPanel1">
+      <div class="btn">
+        <button class=""><i class="fas fa-code"></i></button>
+      </div>
+      <div class="btn-group">
+        <button class="bold"><i class="fa-solid fa-bold"></i></button>
+        <button class="italic"><i class="fa-solid fa-italic"></i></button>
+        <button class="underline"><i class="fa-solid fa-underline"></i></button>
+        <button class="strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
+      </div>
+      <div class="btn-group">
+        <button class="alignLeft"><i class="fa-solid fa-align-left"></i></button>
+        <button class="alignCenter"><i class="fa-solid fa-align-center"></i></button>
+        <button class="alignRight"><i class="fa-solid fa-align-right"></i></button>
+      </div>
+      <div class="btn-group">
 
-                <select name="" id="" value="">
-                    <option value="Arial">Arial</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Impact">Impact</option>
-                    <option value="Tahoma">Tahoma</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Verdana">Verdana</option>
- 
-                </select>
-                <!-- <button class=""><i class="fa-solid fa-font"></i></button> -->
-                <button class=""><i class="fa-solid fa-text-height"></i></button>
-                <button class=""><i class="fa-solid fa-palette"></i></button>
-                <button class=""><i class="fa-solid fa-image"></i></button>
-              
-            
-            </div>
-              <div class="btn">
-                <button class=""><i class="fa-solid fa-lock"></i></button>
-              </div>
+        <div class="btnItem fontStyle">
+          <div class="fontStyleBurger">
+            <span><i class="fa-solid fa-font"></i></span>
+          </div>
+          
+          <div class="fontStyleMenu">
+            <ul class="fontStyleList">
+              <li>
+                <a href="#" class="fontStyleLink arial">arial</a>
+              </li>
+              <li>
+                <a href="#" class="fontStyleLink georgia">Georgia</a>
+              </li>
+              <li>
+                <a href="#" class="fontStyleLink impact">Impact</a>
+              </li>
+              <li>
+                <a href="#" class="fontStyleLink tahoma">Tahoma</a>
+              </li>
+              <li>
+                <a href="#" class="fontStyleLink timesNewRoman">Times New Roman</a>
+              </li>
+              <li>
+                <a href="#" class="fontStyleLink verdana">Verdana</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="btnItem fontSize">
+          <div class="fontSizeBurger">
+            <span><i class="fa-solid fa-text-height"></i></span>
+          </div>
+          
+          <div class="fontSizeMenu">
+            <ul class="fontSizeList">
+              <li>
+                <a href="#" class="fontSizeLink size12">12px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size14">14px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size16">16px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size18">18px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size20">20px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size22">22px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size25">25px</a>
+              </li>
+              <li>
+                <a href="#" class="fontSizeLink size30">30px</a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="buttonsPanel2">
-            
-        </div>
-      
-
-    </header>
+        <button class=""><i class="fa-solid fa-palette"></i></button>
+        <button class=""><i class="fa-solid fa-image"></i></button>
 
 
+      </div>
+      <div class="btn">
+        <button class=""><i class="fa-solid fa-lock"></i></button>
+      </div>
+    </div>
+
+    <div class="buttonsPanel2">
+    </div>
+  </header>
+<main>
+  <section class="content1">
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Eum atque perferendis, debitis doloribus!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Eum atque perferendis, debitis doloribus!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eum atque perferendis, debitis doloribus!</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eum atque perferendis, debitis doloribus!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eum atque perferendis, debitis doloribus!</p>
+
+  </section>
+  <section class="content2"></section>
+</main>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
