@@ -6,51 +6,36 @@
 
 
 header {
-    position: fixed;
     width: 100%;
     height: 100px;
-    top: 0;
-    left: 0;
-    z-index: 50;
-
-}
-
-header::before {
-    content: '';
-    background-color: grey;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-
+    background-color:  grey;
 }
 
 .buttonsPanel1,
 .buttonsPanel2 {
     display: flex;
     justify-content: space-evenly;
-    /* padding: 1%; */
-    max-width: 60%;
-    top: 30%;
+    max-width: 50%;
+    padding-top: 35px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
 }
 
 .buttonsPanel2 {
     display: none;
+    margin: 0 auto;
 }
 
 .btn-group,
-.btn button {
+.btnClass button {
     display: flex;
     border-radius: 5px;
     margin: 0 1%;
 }
-
+.btnClass{
+    padding: 0;
+}
 .btn-group button,
-.btn button {
+.btnClass button {
     background-color: gainsboro;
     color: black;
     padding: 1%;
@@ -80,6 +65,7 @@ i {
     animation-duration: 4s;
     transform: scale(1.05);
 }
+
 
 .arial {
     font-family: Arial, Helvetica, sans-serif;
@@ -156,6 +142,7 @@ i {
     border-radius: 5px 0 0 5px;
     width: 100%;
     height: 35px;
+    line-height: 35px;
     left: 0;
     text-align: center;
     font-weight: bold;
@@ -166,17 +153,33 @@ i {
     border-radius: 0;
 }
 
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
+.underline{
+    text-decoration: underline;
+}
+.line-through{
+    text-decoration: line-through;
+}
+
+
 .fontStyleMenu,
 .fontSizeMenu {
     background-color: gainsboro;
-    padding: 5% 20%;
     position: absolute;
     top: -1000%;
-    width: 350%;
-    left: -250%;
+    width: 100%;
+    left: -70%;
     border-radius: 3px;
     transition: all 0.3s ease 0s;
 }
+ .fontSizeMenu{
+    left: -50%;
+} 
 
 .fontStyleMenu.active,
 .fontSizeMenu.active {
@@ -186,8 +189,14 @@ i {
 .fontStyleList li,
 .fontSizeList li {
     list-style: none;
-    margin: 0 0 5px 0;
+padding-left: 5px;
 }
+
+.fontStyleList,
+.fontSizeList {
+    margin:0;
+}
+
 
 .fontStyleLink,
 .fontSizeLink {
@@ -195,8 +204,10 @@ i {
     color: black;
     text-transform: capitalize;
 }
-.fontStyleList>li:hover, .fontSizeList>li:hover{
-background-color: beige;
+
+.fontStyleList>li:hover,
+.fontSizeList>li:hover {
+    background-color: lightgrey;
 }
 
 .fontStyleLink {
@@ -204,9 +215,132 @@ background-color: beige;
 }
 
 main {
-    padding: 110px 20px 0;
+    height: calc(100vh - 100px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
-
 .content2 {
     display: none;
+    padding-top: 1%;
+
+}
+.content1 {
+margin: 0 5%;
+padding-top: 1%;
+}
+
+a, a:focus, a:hover{
+    text-decoration: none;
+    color: black;
+}
+a:focus{
+    color: black;
+    text-decoration: none;
+
+}
+.modal-dialog{
+    width: 29%;
+    margin: 3% auto;
+}
+.modal-backdrop.in {
+ z-index: 1;
+}
+
+
+.popupMain, .popupColors, .popupImages, .popupFiles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    margin: 1%;
+    cursor: pointer;
+}
+.imageBox{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 45px;
+    background-position: 100% 100%;
+    border-radius: 5px;
+    margin: 1%;
+    cursor: pointer;
+}
+#modalBackground .modal-content{
+    padding: 2% 3%;
+  
+}
+.tab-content {
+    padding: 2%;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+  }
+  .file-input-label {
+      padding: 0px 10px;
+      display: table-cell;
+      vertical-align: middle;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
+  }
+
+
+  .invalid{
+      border: 1px solid red;
+  }
+  #registration .modal-title{
+      text-align: center;
+  }
+  #registration input{
+      border-radius: 5px;
+      width: 100%;
+      height: 35px;
+  }
+.invalid-feedback{
+    font-size: 12px;
+    color: red;
+}
+
+textarea{
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    border: none;
+    overflow: hidden;
+    margin-top: -2%;
+    padding: 0 2%;
+}
+#buildTable>.modal-dialog{
+    width: 50%;
+}
+.rowButtons{
+    display: flex;
+    justify-content: space-between;
+}
+.rowButtons:first-child{
+    margin-right: 15px;
 }

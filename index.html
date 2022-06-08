@@ -9,130 +9,351 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
+  <header id="header">
     <div class="buttonsPanel1">
-      <div class="btn">
-        <button class=""><i class="fas fa-code"></i></button>
+      <div class="btnClass">
+        <button class="showCode"><i class="fas fa-code"></i></button>
       </div>
       <div class="btn-group">
-        <button class="bold"><i class="fa-solid fa-bold"></i></button>
-        <button class="italic"><i class="fa-solid fa-italic"></i></button>
-        <button class="underline"><i class="fa-solid fa-underline"></i></button>
-        <button class="strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
+        <button class="textDecoration" id="bold"><i class="fa-solid fa-bold"></i></button>
+        <button class="textDecoration" id="italic"><i class="fa-solid fa-italic"></i></button>
+        <button class="textDecoration" id="underline"><i class="fa-solid fa-underline"></i></button>
+        <button class="textDecoration" id="line-through"><i class="fa-solid fa-strikethrough"></i></button>
       </div>
       <div class="btn-group">
-        <button class="alignLeft"><i class="fa-solid fa-align-left"></i></button>
-        <button class="alignCenter"><i class="fa-solid fa-align-center"></i></button>
-        <button class="alignRight"><i class="fa-solid fa-align-right"></i></button>
+        <button class="align" id="left"><i class="fa-solid fa-align-left"></i></button>
+        <button class="align" id="center"><i class="fa-solid fa-align-center"></i></button>
+        <button class="align" id="right"><i class="fa-solid fa-align-right"></i></button>
       </div>
-      <div class="btn-group">
 
+      <div class="btn-group">
         <div class="btnItem fontStyle">
           <div class="fontStyleBurger">
             <span><i class="fa-solid fa-font"></i></span>
           </div>
-          
-          <div class="fontStyleMenu">
-            <ul class="fontStyleList">
-              <li>
-                <a href="#" class="fontStyleLink arial">arial</a>
-              </li>
-              <li>
-                <a href="#" class="fontStyleLink georgia">Georgia</a>
-              </li>
-              <li>
-                <a href="#" class="fontStyleLink impact">Impact</a>
-              </li>
-              <li>
-                <a href="#" class="fontStyleLink tahoma">Tahoma</a>
-              </li>
-              <li>
-                <a href="#" class="fontStyleLink timesNewRoman">Times New Roman</a>
-              </li>
-              <li>
-                <a href="#" class="fontStyleLink verdana">Verdana</a>
-              </li>
-            </ul>
-          </div>
         </div>
+        <div class="fontStyleMenu">
+          <ul class="fontStyleList">
+            <li>
+              <a href="#" class="fontStyleLink arial">arial</a>
+            </li>
+            <li>
+              <a href="#" class="fontStyleLink georgia">Georgia</a>
+            </li>
+            <li>
+              <a href="#" class="fontStyleLink impact">Impact</a>
+            </li>
+            <li>
+              <a href="#" class="fontStyleLink tahoma">Tahoma</a>
+            </li>
+            <li>
+              <a href="#" class="fontStyleLink timesNewRoman">Times New Roman</a>
+            </li>
+            <li>
+              <a href="#" class="fontStyleLink verdana">Verdana</a>
+            </li>
+          </ul>
+        </div>
+
         <div class="btnItem fontSize">
           <div class="fontSizeBurger">
             <span><i class="fa-solid fa-text-height"></i></span>
           </div>
-          
-          <div class="fontSizeMenu">
-            <ul class="fontSizeList">
-              <li>
-                <a href="#" class="fontSizeLink size12">12px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size14">14px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size16">16px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size18">18px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size20">20px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size22">22px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size25">25px</a>
-              </li>
-              <li>
-                <a href="#" class="fontSizeLink size30">30px</a>
-              </li>
-            </ul>
+        </div>
+        <div class="fontSizeMenu">
+          <ul class="fontSizeList">
+            <li>
+              <a href="#" class="fontSizeLink size12">12px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size14">14px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size16">16px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size18">18px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size20">20px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size22">22px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size25">25px</a>
+            </li>
+            <li>
+              <a href="#" class="fontSizeLink size30">30px</a>
+            </li>
+          </ul>
+        </div>
+
+        <button data-toggle="modal" data-target="#modalColorsText"><i class="fa-solid fa-palette"></i></button>
+        <div id="modalColorsText" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button data-dismiss="modal" class="close">x</button>
+                <h4 class="modal-title">Choose text color</h4>
+              </div>
+              <div class="modal-body">
+                <div class="popupMain">
+                  <div class="box" style="background-color: red"></div>
+                  <div class="box" style="background-color: pink"></div>
+                  <div class="box" style="background-color: gray"></div>
+                  <div class="box" style="background-color: greenyellow "></div>
+                  <div class="box" style="background-color: green "></div>
+                  <div class="box" style="background-color: violet"></div>
+                  <div class="box" style="background-color: navajowhite"></div>
+                  <div class="box" style="background-color: black"></div>
+                  <div class="box" style="background-color: purple"></div>
+                  <div class="box" style="background-color: firebrick"></div>
+                  <div class="box" style="background-color: indianred"></div>
+                  <div class="box" style="background-color: salmon"></div>
+                  <div class="box" style="background-color: sienna"></div>
+                  <div class="box" style="background-color: gold"></div>
+                  <div class="box" style="background-color: yellow"></div>
+                  <div class="box" style="background-color: wheat"></div>
+                  <div class="box" style="background-color: mediumblue"></div>
+                  <div class="box" style="background-color: mediumvioletred"></div>
+                  <div class="box" style="background-color: brown"></div>
+                  <div class="box" style="background-color: hotpink"></div>
+                  <div class="box" style="background-color: lawngreen"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <button class=""><i class="fa-solid fa-palette"></i></button>
-        <button class=""><i class="fa-solid fa-image"></i></button>
+        <button data-toggle="modal" data-target="#modalBackground"><i class="fa-solid fa-image"></i></button>
+        <div id="modalBackground" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <button data-dismiss="modal" class="close">x</button>
+              <h4 class="modal-title">Choose background color or image</h4>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item active">
+                  <a class="nav-link" id="colors-tab" data-toggle="tab" href="#colors" role="tab"
+                    aria-controls="colors">Colors</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" id="images-tab" data-toggle="tab" href="#images" role="tab"
+                    aria-controls="profile">Images</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="files-tab" data-toggle="tab" href="#files" role="tab"
+                    aria-controls="contact">Files</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane active" id="colors" role="tabpanel" aria-labelledby="colors-tab">
+                  <div class="popupColors">
+                    <div class="box" id="box" style="background-color: red"></div>
+                    <div class="box" id="box" style="background-color: pink"></div>
+                    <div class="box" id="box" style="background-color: gray"></div>
+                    <div class="box" id="box" style="background-color: greenyellow "></div>
+                    <div class="box" id="box" style="background-color: green "></div>
+                    <div class="box" id="box" style="background-color: violet"></div>
+                    <div class="box" id="box" style="background-color: navajowhite"></div>
+                    <div class="box" id="box" style="background-color: black"></div>
+                    <div class="box" id="box" style="background-color: purple"></div>
+                    <div class="box" id="box" style="background-color: firebrick"></div>
+                    <div class="box" id="box" style="background-color: indianred"></div>
+                    <div class="box" id="box" style="background-color: salmon"></div>
+                    <div class="box" id="box" style="background-color: sienna"></div>
+                    <div class="box" id="box" style="background-color: gold"></div>
+                    <div class="box" id="box" style="background-color: yellow"></div>
+                    <div class="box" id="box" style="background-color: wheat"></div>
+                    <div class="box" id="box" style="background-color: mediumblue"></div>
+                    <div class="box" id="box" style="background-color: mediumvioletred"></div>
+                    <div class="box" id="box" style="background-color: brown"></div>
+                    <div class="box" id="box" style="background-color: hotpink"></div>
+                    <div class="box" id="box" style="background-color: lawngreen"></div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="images" role="tabpanel" aria-labelledby="images-tab">
+                  <div class="popupImages">
+                    <div class="imageBox" id="box" style="background-image: url('images/1.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/2.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/3.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/4.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/5.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/6.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/7.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/8.jpg')"></div>
+                    <div class="imageBox" id="box" style="background-image: url('images/9.jpg')"></div>
 
+                  </div>
+                </div>
+                <div class="tab-pane" id="files" role="tabpanel" aria-labelledby="files-tab">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <label class="btn btn-secondary btn-file" for="input_group">
+                        <div class="input required"><input id="input_group" type="file"></div> Browse
+                      </label>
+                    </span>
+                    <span class="file-input-label"></span>
+                  </div>
+                </div>
 
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="btn">
-        <button class=""><i class="fa-solid fa-lock"></i></button>
+      <div class="btnClass">
+        <button class="lockButton" data-toggle="modal" data-target="#registration" data-backdrop="static"
+          data-keyboard="false"><i class="fa-solid fa-lock"></i></button>
+      </div>
+      <div class="modal fade" id="registration" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Sign In</h4>
+            </div>
+            <div class="modal-body">
+              <form name="registration" id="registrationForm">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="login" placeholder="Login here...">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" placeholder="Password here...">
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group">
+                  <input class="btn btn-secondary" type="submit" name="submit" value="Sign in">
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="buttonsPanel2">
+      <div class="btn-group">
+        <button class="saveChanges"><i class="fa-solid fa-floppy-disk"></i></button>
+        <button class="buildTable" data-toggle="modal" data-target="#buildTable"><i class="fa-solid fa-table"></i></button>
+        <button class="buildListOl" data-toggle="modal" data-target="#buildListOl"><i class="fa-solid fa-list-ol"></i></button>
+        <button class="buildListUl" data-toggle="modal" data-target="#buildListUl"><i class="fa-solid fa-list-ul"></i></button>
+      </div>
+    </div>
+    <div id="buildTable" class="modal fade" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close">x</button>
+            <h3 class="modal-title">Create table</h3>
+          </div>
+          <div class="modal-body">
+            <form role="form" id="buildTableForm" name="buildTableForm">
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="countTR">Count TR</label>
+                  <input type="text" class="form-control countTR" name="countTR" placeholder="Type here...">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="countTD">Count TD</label>
+                  <input type="text" class="form-control countTD" name="countTD" placeholder="Type here...">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="widthTD">Width of TD</label>
+                  <input type="text" class="form-control widthTD" name="widthTD" placeholder="Type here...">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="heightTD">Height of TD</label>
+                  <input type="text" class="form-control heightTD" name="heightTD" placeholder="Type here...">
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="widthBorder">Width of border</label>
+                  <input type="text" class="form-control widthBorder" name="widthBorder" placeholder="Type here...">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="styleBorder">Style of border</label>
+                  <select name="styleBorder" class="form-control styleBorder">
+                    <option selected disabled>Choose style</option>
+                    <option>dotter</option>
+                    <option>dasher</option>
+                    <option>solid</option>
+                    <option>double</option>
+                    <option>groove</option>
+                    <option>ridge</option>
+                    <option>inset</option>
+                    <option>outset</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="colorBorder">Color of border</label>
+                  <select name="colorBorder" class="form-control colorBorder">
+                    <option selected disabled>Choose color</option>
+                    <option>red</option>
+                    <option>blue</option>
+                    <option>yellow</option>
+                    <option>pink</option>
+                    <option>green</option>
+                    <option>purple</option>
+                    <option>violet</option>
+                    <option>white</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="rowButtons">
+                <button type="button" class="btn col-md-5 btn-danger resetTable">Reset</button>
+                <button type="submit" class="btn col-md-5 btn-success createTable">Create table</button>
+              </div>
+    
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </header>
-<main>
-  <section class="content1">
+  <main>
+    <section class="content1">
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Eum atque perferendis, debitis doloribus!</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Eum atque perferendis, debitis doloribus!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Eum atque perferendis, debitis doloribus!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eum atque perferendis, debitis doloribus!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eum atque perferendis, debitis doloribus!</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eum atque perferendis, debitis doloribus!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eum atque perferendis, debitis doloribus!</p>
 
-  </section>
-  <section class="content2"></section>
-</main>
+    </section>
+    <section class="content2">
+<textarea name="" id=""></textarea>
 
-
+    </section>
+  </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </body>
 
