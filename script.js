@@ -19,7 +19,26 @@ $(function () {
     let heightTD = formbuildTable.heightTD;
     let widthBorder = formbuildTable.widthBorder;
     let styleBorder = formbuildTable.styleBorder;
+    let colorBorder = formbuildTable.colorBorder;
 
+    let formBuildListOl = document.forms['buildOlForm'];
+    let countItemOl = formBuildListOl.countItemOl;
+    let markOfListOl = formBuildListOl.markOfListOl;
+
+    let formBuildListUl = document.forms['buildUlForm'];
+    let countItemUl = formBuildListUl.countItemUl;
+    let markOfListUl = formBuildListUl.markOfListUl;
+
+
+    let openModal = (modalWindow) => {
+        $(modalWindow).on('shown.bs.modal', function () {
+            $(modalWindow).trigger('focus')
+        })
+    }
+    openModal(registration);
+    openModal(buildTable);
+    openModal(buildListOl);
+    openModal(buildListUl);
 
     $('.align').each(function (index, element) {
         $(element).click(() => {
@@ -110,25 +129,22 @@ $(function () {
         }
     });
 
-    $('#registration').on('shown.bs.modal', function () {
-        $('#registration').trigger('focus')
-    })
-
     $("#registrationForm").on("submit", function () {
         if (login.value == "admin" && password.value == "admin") {
             $('#registration').modal('hide');
             $('input[name="login"]').removeClass('invalid');
             $('input[name="password"]').removeClass('invalid');
-            $('.invalid-feedback').text('');
+            $('#registration .invalid-feedback').css('display', 'none');
             form.reset();
         } else if (!login.value && !password.value) {
-            $('.invalid-feedback').text('Value is empty');
+
+            $('#registration .invalid-feedback').css('display', 'block').text('Value is empty');
             $('input[name="login"]').addClass('invalid');
             $('input[name="password"]').addClass('invalid');
         } else if (login.value != 'admin' && password.value != 'admin') {
             $('input[name="login"]').addClass('invalid')
             $('input[name="password"]').addClass('invalid');
-            $('.invalid-feedback').text('Please check your login or password');
+            $('#registration .invalid-feedback').css('display', 'block').text('Please check your login or password');
         }
         return false;
     })
@@ -147,57 +163,161 @@ $(function () {
         $('.buttonsPanel1').css('display', 'flex');
         $('.content1').show(500).html($('textarea').val())
     })
-    $('#buildTable').on('shown.bs.modal', function () {
-        $('#buildTable').trigger('focus')
+
+    let checkValueNumber = function (value, element) {
+        if (isNaN(value) || !value) {
+            element.classList.add('invalid');
+        } else {
+            element.classList.remove('invalid');
+        }
+    }
+    let checkValueSelect = function (value, element) {
+        if (value == 'Choose color' || value == 'Choose style' || value == 'choose Ol type mark' || value == 'choose Ul type mark') {
+            element.classList.add('invalid');
+        } else {
+            element.classList.remove('invalid');
+        }
+    }
+
+    let createTable = (countTR, countTD, widthTD, heightTD, widthBorder, styleBorder, colorBorder) => {
+        let table = "<table>";
+        for (i = 0; i < countTR; i++) {
+            table += "<tr>";
+            for (j = 0; j < countTD; j++) {
+                table += `<td style="width:${widthTD}px;height:${heightTD}px;border:${widthBorder}px ${styleBorder} ${colorBorder}">TD</td>`;
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        let currentVal = $('textarea').val();
+        $('textarea').val(currentVal + table)
+    }
+
+
+    $('.createTable').on("click", function () {
+        checkValueNumber(countTR.value, countTR);
+        checkValueNumber(countTD.value, countTD);
+        checkValueNumber(widthTD.value, widthTD);
+        checkValueNumber(heightTD.value, heightTD);
+        checkValueNumber(widthBorder.value, widthBorder);
+        checkValueSelect(styleBorder.value, styleBorder);
+        checkValueSelect(colorBorder.value, colorBorder);
+        if (isValidClassTable()) {
+            $('#buildTable .invalid-feedback').css('display', 'none');
+            createTable(countTR.value, countTD.value, widthTD.value, heightTD.value, widthBorder.value, styleBorder.value, colorBorder.value);
+        }
     })
-    // $("#buildTableForm").on("submit", function () {
-    //     if (login.value == "admin" && password.value == "admin") {
-    //         $('#registration').modal('hide');
-    //         $('input[name="login"]').removeClass('invalid');
-    //         $('input[name="password"]').removeClass('invalid');
-    //         $('.invalid-feedback').text('');
-    //         form.reset();
-    //     } else if (!login.value && !password.value) {
-    //         $('.invalid-feedback').text('Value is empty');
-    //         $('input[name="login"]').addClass('invalid');
-    //         $('input[name="password"]').addClass('invalid');
-    //     } else if (login.value != 'admin' && password.value != 'admin') {
-    //         $('input[name="login"]').addClass('invalid')
-    //         $('input[name="password"]').addClass('invalid');
-    //         $('.invalid-feedback').text('Please check your login or password');
-    //     }
-    //     return false;
-    // })
+
+    function isValidClassTable() {
+        let isValid = true;
+        $('#buildTableForm input, #buildTableForm select').each(function () {
+            if ($(this).hasClass("invalid")) {
+                $('#buildTable').modal('show');
+                $('#buildTable .invalid-feedback').css('display', 'block');
+                isValid = false;
+                return;
+            }
+        });
+        return isValid;
+    }
+
+    $('.resetFormTable').click(function (e) {
+        $('#buildTableForm').trigger("reset");
+        e.preventDefault();
+        $('#buildTableForm input, #buildTableForm select').each(function () {
+            $(this).removeClass("invalid");
+        })
+        $('#buildTable .invalid-feedback').css('display', 'none');
+    });
 
 
 
 
+    $('.createListOl').on("click", function () {
+        checkValueNumber(countItemOl.value, countItemOl);
+        checkValueSelect(markOfListOl.value, markOfListOl);
+
+        if (isValidClassListOl()) {
+            $('#buildListOl .invalid-feedback').css('display', 'none');
+            createListOl(countItemOl.value, markOfListOl.value);
+        }
+    })
+
+    function isValidClassListOl() {
+        let isValid = true;
+        $('#buildOlForm input, #buildOlForm select').each(function () {
+            if ($(this).hasClass("invalid")) {
+                $('#buildListOl').modal('show');
+                $('#buildListOl .invalid-feedback').css('display', 'block');
+
+                isValid = false;
+                return;
+            }
+        });
+        return isValid;
+    }
+
+    $('.resetFormListOl').click(function (e) {
+        $('#buildOlForm').trigger("reset");
+        e.preventDefault();
+        $('#buildOlForm input, #buildOlForm select').each(function () {
+            $(this).removeClass("invalid");
+        })
+        $('#buildListOl .invalid-feedback').css('display', 'none');
+    });
 
 
 
+    $('.createListUl').on("click", function () {
+        checkValueNumber(countItemUl.value, countItemUl);
+        checkValueSelect(markOfListUl.value, markOfListUl);
 
+        if (isValidClassListUl()) {
+            $('#buildListUl .invalid-feedback').css('display', 'none');
+            createListUl(countItemUl.value, markOfListUl.value);
+        }
+    })
 
+    function isValidClassListUl() {
+        let isValid = true;
+        $('#buildUlForm input, #buildUlForm select').each(function () {
+            if ($(this).hasClass("invalid")) {
+                $('#buildListUl').modal('show');
+                $('#buildListUl .invalid-feedback').css('display', 'block');
+                isValid = false;
+                return;
+            }
+        });
+        return isValid;
+    }
 
+    $('.resetFormListUl').click(function (e) {
+        $('#buildUlForm').trigger("reset");
+        e.preventDefault();
+        $('#buildUlForm input, #buildUlForm select').each(function () {
+            $(this).removeClass("invalid");
+        })
+        $('#buildListUl .invalid-feedback').css('display', 'none');
+    });
 
+    let createListOl = (countLi, markOfList) => {
+        let list = "<ol>";
+        for (i = 0; i < countLi; i++) {
+            list += `<li style="list-style-type:${markOfList};">item</li>`;
+        }
+        list += "</ol>";
+        let currentVal = $('textarea').val();
+        $('textarea').val(currentVal + list)
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    let createListUl = (countLi, markOfList) => {
+        let list = "<ul>";
+        for (i = 0; i < countLi; i++) {
+            list += `<li style="list-style-type:${markOfList};">item</li>`;
+        }
+        list += "</ul>";
+        let currentVal = $('textarea').val();
+        $('textarea').val(currentVal + list)
+    }
 
 })

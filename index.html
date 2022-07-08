@@ -9,13 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
   <header id="header">
     <div class="buttonsPanel1">
       <div class="btnClass">
@@ -32,7 +30,6 @@
         <button class="align" id="center"><i class="fa-solid fa-align-center"></i></button>
         <button class="align" id="right"><i class="fa-solid fa-align-right"></i></button>
       </div>
-
       <div class="btn-group">
         <div class="btnItem fontStyle">
           <div class="fontStyleBurger">
@@ -226,25 +223,26 @@
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" name="password" placeholder="Password here...">
-                  <div class="invalid-feedback"></div>
+                  <div class="invalid-feedback">Value is empty</div>
                 </div>
                 <div class="form-group">
                   <input class="btn btn-secondary" type="submit" name="submit" value="Sign in">
                 </div>
               </form>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-
     <div class="buttonsPanel2">
       <div class="btn-group">
         <button class="saveChanges"><i class="fa-solid fa-floppy-disk"></i></button>
-        <button class="buildTable" data-toggle="modal" data-target="#buildTable"><i class="fa-solid fa-table"></i></button>
-        <button class="buildListOl" data-toggle="modal" data-target="#buildListOl"><i class="fa-solid fa-list-ol"></i></button>
-        <button class="buildListUl" data-toggle="modal" data-target="#buildListUl"><i class="fa-solid fa-list-ul"></i></button>
+        <button class="buildTable" data-toggle="modal" data-target="#buildTable"><i
+            class="fa-solid fa-table"></i></button>
+        <button class="buildListOl" data-toggle="modal" data-target="#buildListOl"><i
+            class="fa-solid fa-list-ol"></i></button>
+        <button class="buildListUl" data-toggle="modal" data-target="#buildListUl"><i
+            class="fa-solid fa-list-ul"></i></button>
       </div>
     </div>
     <div id="buildTable" class="modal fade" tabindex="-1" aria-hidden="true">
@@ -256,7 +254,6 @@
           </div>
           <div class="modal-body">
             <form role="form" id="buildTableForm" name="buildTableForm">
-
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="countTR">Count TR</label>
@@ -267,7 +264,6 @@
                   <input type="text" class="form-control countTD" name="countTD" placeholder="Type here...">
                 </div>
               </div>
-
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="widthTD">Width of TD</label>
@@ -278,7 +274,6 @@
                   <input type="text" class="form-control heightTD" name="heightTD" placeholder="Type here...">
                 </div>
               </div>
-        
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="widthBorder">Width of border</label>
@@ -288,7 +283,7 @@
                   <label for="styleBorder">Style of border</label>
                   <select name="styleBorder" class="form-control styleBorder">
                     <option selected disabled>Choose style</option>
-                    <option>dotter</option>
+                    <option>dotted</option>
                     <option>dasher</option>
                     <option>solid</option>
                     <option>double</option>
@@ -313,14 +308,89 @@
                   </select>
                 </div>
               </div>
-
+              <div class="invalid-feedback">invalid value</div>
               <div class="rowButtons">
-                <button type="button" class="btn col-md-5 btn-danger resetTable">Reset</button>
-                <button type="submit" class="btn col-md-5 btn-success createTable">Create table</button>
+                <button type="button" class="btn col-md-5 btn-danger resetFormTable">Reset</button>
+                <button type="button" class="btn col-md-5 btn-success createTable" data-toggle="modal"
+                  data-target="#modalDivId" data-backdrop="static" data-keyboard="false">Create table</button>
               </div>
-    
             </form>
-            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="buildListOl" class="modal fade" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close">x</button>
+            <h3 class="modal-title">Create Ol</h3>
+          </div>
+          <div class="modal-body">
+            <form role="form" id="buildOlForm" name="buildOlForm">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="countItemOl">Count li item:</label>
+                  <input type="text" class="form-control countItemOl" name="countItemOl" placeholder="Type here...">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="markOfListOl">Type mark of list:</label>
+                  <select name="markOfListOl" class="form-control markOfListOl">
+                    <option selected disabled>choose Ol type mark</option>
+                    <option value="decimal">1</option>
+                    <option value="upper-roman">I</option>
+                    <option value="lower-roman">i</option>
+                    <option value="upper-alpha">A</option>
+                    <option value="lower-alpha">a</option>
+                  </select>
+                </div>
+              </div>
+              <div class="invalid-feedback">invalid value</div>
+              <div class="rowButtons">
+                <button type="button" class="btn col-md-5 btn-danger resetFormListOl">Reset</button>
+                <button type="button" class="btn col-md-5 btn-success createListOl" data-toggle="modal"
+                  data-target="#modalDivId" data-backdrop="static" data-keyboard="false">Create list</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="buildListUl" class="modal fade" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close">x</button>
+            <h3 class="modal-title">Create Ul</h3>
+          </div>
+          <div class="modal-body">
+            <form role="form" id="buildUlForm" name="buildUlForm">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="countItemUl">Count li item:</label>
+                  <input type="text" class="form-control countItemUl" name="countItemUl" placeholder="Type here...">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="markOfListUl">Type mark of list:</label>
+                  <select name="markOfListUl" class="form-control markOfListUl">
+                    <option selected disabled>choose Ul type mark</option>
+                    <option>circle</option>
+                    <option>disc</option>
+                    <option>square</option>
+                  </select>
+                </div>
+              </div>
+              <div class="invalid-feedback">invalid value</div>
+              <div class="rowButtons">
+                <button type="button" class="btn col-md-5 btn-danger resetFormListUl">Reset</button>
+                <button type="button" class="btn col-md-5 btn-success createListUl" data-toggle="modal"
+                  data-target="#modalDivId" data-backdrop="static" data-keyboard="false">Create list</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -329,7 +399,6 @@
   </header>
   <main>
     <section class="content1">
-
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Eum atque perferendis, debitis doloribus!</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -344,10 +413,9 @@
         Eum atque perferendis, debitis doloribus!</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Eum atque perferendis, debitis doloribus!</p>
-
     </section>
     <section class="content2">
-<textarea name="" id=""></textarea>
+      <textarea></textarea>
 
     </section>
   </main>
